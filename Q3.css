@@ -1,0 +1,45 @@
+*{
+    box-sizing: border-box;
+
+}
+body{
+    margin: 0;
+    padding: 0;
+    
+}
+.container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.col1 , .col2 {
+    border-right: 2px solid #000;
+}
+.row1 , .row2{
+    border-bottom: 2px solid #000;
+}
+
+table{
+    border-collapse: collapse;
+    
+}
+
+.col1 , .col2 , .col3{
+    padding: 3rem;
+    font-size: 2rem;
+    
+}
+.col1 , .col2 , .col3:hover{
+    cursor: pointer;
+}
+.result{
+    display: none;
+    text-align: center;
+    font-size: 2rem;
+    background-color:  rgb(82, 241, 154);
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 1rem;
+    font-family: Verdana;
+}

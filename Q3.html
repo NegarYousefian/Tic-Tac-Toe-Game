@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="Q3.css">
+        <title>Question 3</title>
+    </head>
+    <body>
+        <div class="container">
+            <table class="dashboard">
+                <tr class="row1">
+                    <td class="col1" onclick="handleClick()"></td>
+                    <td class="col2" onclick="handleClick()"></td>
+                    <td class="col3" onclick="handleClick()"></td>
+                </tr>
+                <tr class="row2">
+                    <td class="col1" onclick="handleClick()"></td>
+                    <td class="col2" onclick="handleClick()"></td>
+                    <td class="col3" onclick="handleClick()"></td>
+                </tr>
+                <tr class="row3">
+                    <td class="col1" onclick="handleClick()"></td>
+                    <td class="col2" onclick="handleClick()"></td>
+                    <td class="col3" onclick="handleClick()"></td>
+                </tr>
+            </table>
+            <div class="result"></div>
+        </div>
+
+        <script type="text/javascript">
+            var result = "continue"
+            var turn = 0
+            var count = 0
+            function handleClick(){
+                var temp = event.target;
+                if(temp.innerHTML == "" && result == "continue"){
+                    if(turn == 0){
+                        temp.innerHTML = "O"
+                        temp.style.color = "blue"
+                        turn = 1
+                    } 
+                    else {
+                        temp.innerHTML = "X"
+                        temp.style.color = "red"
+                        turn = 0
+                    }
+                    count++
+                    checkResult()
+                }
+
+            }
+            function checkResult(){
+                var col1 = document.getElementsByClassName("col1")
+                var col2 = document.getElementsByClassName("col2")
+                var col3 = document.getElementsByClassName("col3")
+                if(col1[0].innerHTML == col1[1].innerHTML && col1[0].innerHTML == col1[2].innerHTML && col1[0].innerHTML != ""){
+                    result = col1[0].innerHTML + " WON!"
+                }
+                else if(col2[0].innerHTML == col2[1].innerHTML && col2[0].innerHTML == col2[2].innerHTML && col2[0].innerHTML != ""){
+                    result = col2[0].innerHTML + " WON!"
+                }
+                else if(col3[0].innerHTML == col3[1].innerHTML && col3[0].innerHTML == col3[2].innerHTML && col3[0].innerHTML != ""){
+                    result = col3[0].innerHTML + " WON!"
+                }
+                else if(col1[0].innerHTML == col2[0].innerHTML && col2[0].innerHTML == col3[0].innerHTML && col1[0].innerHTML != ""){
+                    result = col1[0].innerHTML + " WON!"
+                }
+                else if(col1[1].innerHTML == col2[1].innerHTML && col1[1].innerHTML == col3[1].innerHTML && col1[1].innerHTML != ""){
+                    result = col1[1].innerHTML + " WON!"
+                }
+                else if(col1[2].innerHTML == col2[2].innerHTML && col1[2].innerHTML == col3[2].innerHTML && col1[2].innerHTML != ""){
+                    result = col1[2].innerHTML + " WON!"
+                }
+                else if(col1[0].innerHTML == col2[1].innerHTML && col1[0].innerHTML == col3[2].innerHTML && col1[0].innerHTML != ""){
+                    result = col1[0].innerHTML + " WON!"
+                }
+                else if(col1[2].innerHTML == col2[1].innerHTML && col1[2].innerHTML == col3[0].innerHTML && col1[2].innerHTML != ""){
+                    result = col1[2].innerHTML + " WON!"
+                }
+                else{
+                    if(count == 9) result = "Equal!" 
+                }
+
+
+                if(result != "continue") {
+                    document.getElementsByClassName("result")[0].innerHTML = result
+                    document.getElementsByClassName("result")[0].style.display = "block"
+                }
+                
+            }
+
+        </script>
+    </body>
+</html>
